@@ -19,7 +19,7 @@ public class Login extends AppCompatActivity {
     //apre l'activity per la registrazione
     public void signuppremuto(View view)
     {
-        Intent intent = new Intent(Login.this, Sign_Up.class);
+        Intent intent = new Intent(Login.this, Registrazione.class);
         startActivity(intent);
     }
     //apre l'activity per il recupero della password
@@ -43,5 +43,5 @@ public class Login extends AppCompatActivity {
         //TODO
     }
 
-
+//fine della classe
 }
