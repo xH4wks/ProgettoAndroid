@@ -1,11 +1,12 @@
-package com.example.natour2021;
+package com.example.natour2021.accesso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import com.example.natour2021.R;
 
 public class Login extends AppCompatActivity {
 

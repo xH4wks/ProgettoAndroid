@@ -13,10 +13,10 @@
         android:theme="@style/Theme.NaTour2021">
 
         <activity
-            android:name=".Sign_Up"
+            android:name=".accesso.Sign_Up"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".accesso.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
