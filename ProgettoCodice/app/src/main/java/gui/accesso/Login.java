@@ -26,27 +26,27 @@ public class Login extends AppCompatActivity {
     }
 
     //apre l'activity per la registrazione
-    public void signuppremuto()
+    public void signuppremuto(View view)
     {
         ctrl.apriregistrazione(this);
     }
     //apre l'activity per il recupero della password
-    public void passworddimenticatapremuto ()
+    public void passworddimenticatapremuto (View view)
     {
         //TODO
     }
     //apre l'activity principale dell'app
-    public void signinpremuto ()
+    public void signinpremuto (View view)
     {
         //TODO
     }
     //apre esegue l'accesso con google
-    public void googleaccesspremuto ()
+    public void googleaccesspremuto (View view)
     {
         //TODO
     }
     //apre esegue l'accesso con facebook
-    public void facebookaccespremuto ()
+    public void facebookaccespremuto (View view)
     {
         //TODO
     }

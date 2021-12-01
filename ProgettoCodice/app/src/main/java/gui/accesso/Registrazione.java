@@ -3,6 +3,7 @@ package gui.accesso;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.natour2021.R;
 
@@ -24,7 +25,7 @@ public class Registrazione extends AppCompatActivity {
     }
 
     //bottone per tornare al login
-    public void signinpremuto (){
+    public void signinpremuto (View view){
         ctrl.aprilogin(this);
     }
 }

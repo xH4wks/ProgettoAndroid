@@ -25,4 +25,6 @@ public class Controllore {
         Intent intent = new Intent(reg, Login.class);
         reg.startActivity(intent);
     }
+
+
 }
