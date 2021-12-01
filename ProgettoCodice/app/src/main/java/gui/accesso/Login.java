@@ -1,4 +1,4 @@
-package com.example.natour2021.accesso;
+package gui.accesso;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,16 @@ import android.view.View;
 
 import com.example.natour2021.R;
 
+import controllore.Controllore;
+
+
 public class Login extends AppCompatActivity {
+
+    Controllore ctrl;
+
+    public Login() {
+        ctrl = new Controllore();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,28 +26,27 @@ public class Login extends AppCompatActivity {
     }
 
     //apre l'activity per la registrazione
-    public void signuppremuto(View view)
+    public void signuppremuto()
     {
-        Intent intent = new Intent(Login.this, Registrazione.class);
-        startActivity(intent);
+        ctrl.apriregistrazione(this);
     }
     //apre l'activity per il recupero della password
-    public void passworddimenticatapremuto (View view)
+    public void passworddimenticatapremuto ()
     {
         //TODO
     }
     //apre l'activity principale dell'app
-    public void signinpremuto (View view)
+    public void signinpremuto ()
     {
         //TODO
     }
     //apre esegue l'accesso con google
-    public void googleaccesspremuto (View view)
+    public void googleaccesspremuto ()
     {
         //TODO
     }
     //apre esegue l'accesso con facebook
-    public void facebookaccespremuto (View view)
+    public void facebookaccespremuto ()
     {
         //TODO
     }

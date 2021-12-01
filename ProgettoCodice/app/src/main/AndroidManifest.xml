@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.natour2021">
+
     <uses-permission android:name="Android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="Android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="Android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NaTour2021">
-
         <activity
-            android:name=".accesso.Registrazione"
+            android:name="gui.accesso.Registrazione"
             android:exported="false" />
         <activity
-            android:name=".accesso.Login"
+            android:name="gui.accesso.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

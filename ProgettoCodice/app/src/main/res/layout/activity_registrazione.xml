@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".accesso.Registrazione">
+    tools:context="gui.accesso.Registrazione">
 
     <TextView
         android:id="@+id/textView"
@@ -100,4 +100,5 @@
         android:textColor="#0F49AE"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
