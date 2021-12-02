@@ -7,7 +7,7 @@ public class Controllore {
 
     public static void  main (String Args[])
     {
-        Login log = new Login();
+        PreLogin log = new PreLogin();
         log.setVisible(true);
 
     }
