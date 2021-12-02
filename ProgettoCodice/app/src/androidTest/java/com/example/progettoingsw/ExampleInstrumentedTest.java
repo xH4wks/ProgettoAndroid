@@ -1,4 +1,4 @@
-package com.example.natour2021;
+package com.example.progettoingsw;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.natour2021", appContext.getPackageName());
+        assertEquals("com.example.progettoingsw", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.natour2021;
+package com.example.progettoingsw;
 
 import org.junit.Test;
 
