@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager frman = getSupportFragmentManager();
         FragmentTransaction frtr = frman.beginTransaction();
+        frtr.setCustomAnimations(R.anim.entrata_dal_basso,R.anim.esci_dal_basso,R.anim.entrata_dal_basso,R.anim.esci_dal_basso);
         frtr.replace(R.id.fragmentcontainer,fragment);
         frtr.commit();
 
