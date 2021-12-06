@@ -35,41 +35,15 @@
         android:id="@+id/labelBottoneAccedi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="44dp"
         android:backgroundTint="@color/white"
         android:text="Accedi"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
-        app:layout_constraintStart_toEndOf="@+id/labelDomanda"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrati" />
-
-    <TextView
-        android:id="@+id/labelDomanda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="52dp"
-        android:text="hai già un account?"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegistrati" />
-
-    <Button
-        android:id="@+id/buttonRegistrati"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Registrati"
-        android:textColor="#000000"
-        android:textColorHighlight="#D31212"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/label2021" />
 
     <FrameLayout
         android:id="@+id/fragmentcontainer"
@@ -79,6 +53,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" >
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/buttonRegistrati"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="#FFFFFF"
+        android:text="Registrati"
+        android:textColor="#000000"
+        android:textColorHighlight="#D31212"
+        app:layout_constraintEnd_toStartOf="@+id/labelBottoneAccedi"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label2021" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -76,7 +76,7 @@
         android:id="@+id/buttonGoogleaccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="33dp"
         android:layout_marginTop="4dp"
         android:text="accedi con google"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,7 @@
         android:id="@+id/buttonFacebookaccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="33dp"
         android:text="accedi con facebook
 "
         app:layout_constraintStart_toStartOf="parent"
