@@ -15,7 +15,7 @@ import com.example.progettoingsw.GUI.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button accedi,registrati;
+    Button accedi,registrati, indietro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,28 +23,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         accedi = findViewById(R.id.labelBottoneAccedi);
+        registrati = (Button)findViewById(R.id.buttonRegistrati);
+        indietro = findViewById(R.id.indietro);
+
 
         accedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 replaceFragment(new LoginFragment());
-
+                registrati.setVisibility(100);
+                accedi.setVisibility(100);
 
             }
         });
 
-        registrati = findViewById(R.id.buttonRegistrati);
 
         registrati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 replaceFragment(new RegistratiFragment());
+                registrati.setVisibility(100);
+                accedi.setVisibility(100);
 
             }
         });
 
+
+        indietro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                closeFragment(new Fragment());
+                registrati.setVisibility(0);
+                accedi.setVisibility(0);
+            }
+        });
 
         //fine on create
     }
@@ -54,6 +69,16 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager frman = getSupportFragmentManager();
         FragmentTransaction frtr = frman.beginTransaction();
         frtr.setCustomAnimations(R.anim.entrata_dal_basso,R.anim.esci_dal_basso,R.anim.entrata_dal_basso,R.anim.esci_dal_basso);
+        frtr.replace(R.id.fragmentcontainer,fragment);
+        frtr.commit();
+
+    }
+
+    private void closeFragment(Fragment fragment) {
+
+        FragmentManager frman = getSupportFragmentManager();
+        FragmentTransaction frtr = frman.beginTransaction();
+        frtr.setCustomAnimations(R.anim.esci_dal_basso,R.anim.esci_dal_basso);
         frtr.replace(R.id.fragmentcontainer,fragment);
         frtr.commit();
 
