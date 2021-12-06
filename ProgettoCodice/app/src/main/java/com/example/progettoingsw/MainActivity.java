@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 closeFragment(new Fragment());
+
                 registrati.setVisibility(0);
                 accedi.setVisibility(0);
             }
