@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        accedi = findViewById(R.id.labelBottoneAccedi);
+        accedi = (Button) findViewById(R.id.labelBottoneAccedi);
         registrati = (Button)findViewById(R.id.buttonRegistrati);
-        indietro = findViewById(R.id.indietro);
+        indietro = (Button) findViewById(R.id.indietro);
 
 
         accedi.setOnClickListener(new View.OnClickListener() {
