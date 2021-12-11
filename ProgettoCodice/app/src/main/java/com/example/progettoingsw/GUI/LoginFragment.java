@@ -47,7 +47,7 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
-
+        //accesso google e facebook  todo
 
         //end component
         return  view;

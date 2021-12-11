@@ -15,6 +15,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
+
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/ContainerMappa"
         android:name="com.example.progettoingsw.GUI.home.MapsFragment"
@@ -27,7 +30,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/ContainerMenu"
-        android:name="com.example.progettoingsw.GUI.home.MenuLateraleFragment"
         android:layout_width="305dp"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
