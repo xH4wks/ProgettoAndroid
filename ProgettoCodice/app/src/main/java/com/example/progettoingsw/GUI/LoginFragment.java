@@ -4,21 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-
+import android.widget.EditText;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.GUI.home.Home;
 import com.example.progettoingsw.R;
 
 
-public class LoginFragment extends Fragment implements View.OnClickListener {
+public class LoginFragment extends Fragment {
 
-
+    EditText email,password;
 
 
     public LoginFragment() {
@@ -31,26 +29,26 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         View view= inflater.inflate(R.layout.fragment_login, container, false);
         //component
         Button accesso = (Button) view.findViewById(R.id.buttonaccedi);
-        accesso.setOnClickListener(this);
+        email = (EditText) view.findViewById(R.id.textEmail);
+        password = (EditText) view.findViewById(R.id.textPassword);
+        accesso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                LogicCenter l = new LogicCenter();
+                
+                if (l.apriHome(email.getText(),password.getText())){
+                    Intent home = new Intent(getActivity(),Home.class);
+                    startActivity(home);
+                }
+            }
+        });
+
 
         //end component
         return  view;
     }
-    @Override
-    public void onClick(View v) {
 
-        TextView email =(TextView) v.findViewById(R.id.textEmail);
-        TextView password =(TextView) v.findViewById(R.id.textPassword);
-        LogicCenter f = new LogicCenter();
-        boolean result;
-        result = f.apriHome(email.getText(),password.getText());
-        if (result){
-            Intent home = new Intent(getActivity(), Home.class);
-            startActivity(home);
-        }
-
-
-        }
 
 
 }
