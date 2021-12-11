@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +33,13 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
+            Log.v("google maps","sto mettendo il punto sulla mappa");
             LatLng sydney = new LatLng(-34, 151);
+            Log.v("google maps","genero la posizione");
             googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+            Log.v("google maps","setto la posizione");
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            Log.v("google maps","chiamo la factory");
         }
     };
 
