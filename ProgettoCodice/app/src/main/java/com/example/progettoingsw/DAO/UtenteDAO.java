@@ -9,4 +9,9 @@ public class UtenteDAO {
         //todo
         return true;
     }
+
+    public boolean registrati(String username, String password) {
+        //todo
+        return true;
+    }
 }

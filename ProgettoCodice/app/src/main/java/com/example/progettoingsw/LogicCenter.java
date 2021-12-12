@@ -26,5 +26,18 @@ public class LogicCenter {
 
     }
 
+    public boolean registrazione (Editable username, Editable password){
+
+        Utente u = new Utente(username.toString(),password.toString());
+        if(u.registrati(u)){
+            return  true;
+        }
+        else{
+            //todo
+            return  false;
+        }
+
+    }
+
 
 }

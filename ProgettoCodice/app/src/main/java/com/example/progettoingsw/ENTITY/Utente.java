@@ -26,6 +26,17 @@ public class Utente {
         return  result;
     }
 
+    //registrazione
+    public boolean registrati(Utente u) {
+        UtenteDAO ud = new UtenteDAO();
+        boolean result = ud.registrati(u.username,u.password);
+
+        return  result;
+    }
+
+
+
+
 
     //setter
     public void setUsername(String username) {
@@ -39,5 +50,6 @@ public class Utente {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 }
