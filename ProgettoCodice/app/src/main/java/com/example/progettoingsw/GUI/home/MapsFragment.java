@@ -34,11 +34,11 @@ public class MapsFragment extends Fragment {
         @Override
         public void onMapReady(GoogleMap googleMap) {
             Log.v("google maps","sto mettendo il punto sulla mappa");
-            LatLng sydney = new LatLng(-34, 151);
+            LatLng napoli = new LatLng(40, 14);
             Log.v("google maps","genero la posizione");
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+            googleMap.addMarker(new MarkerOptions().position(napoli).title("Marker in Sydney"));
             Log.v("google maps","setto la posizione");
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(napoli));
             Log.v("google maps","chiamo la factory");
         }
     };
