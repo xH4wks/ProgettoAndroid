@@ -20,7 +20,7 @@ import com.example.progettoingsw.R;
 public class LoginFragment extends Fragment {
 
     EditText email,password;
-    MainActivity m;
+
 
 
     public LoginFragment() {
