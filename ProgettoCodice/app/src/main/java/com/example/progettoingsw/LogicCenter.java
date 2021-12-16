@@ -40,4 +40,8 @@ public class LogicCenter {
     }
 
 
+    public void cambiapassword(Editable nuovonome, Editable password) {
+        //todo non ho ancora idea di come salvare le informazioni dell'utente
+        //all'interno dell' app
+    }
 }

@@ -33,7 +33,7 @@ public class Impostazioni extends AppCompatActivity {
                 break;
 
             case (2):
-                nome.setMinimumHeight(300);
+                nome.setMinimumHeight(280);
                 break;
             case (3):
                 password.setMinimumHeight(300);
