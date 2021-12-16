@@ -10,7 +10,7 @@ import com.example.progettoingsw.R;
 
 public class Impostazioni extends AppCompatActivity {
 
-    FragmentContainerView avatar,nome,password;
+    private FragmentContainerView avatar,nome,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +29,23 @@ public class Impostazioni extends AppCompatActivity {
         switch (fragment){
 
             case (1):
-                avatar.setMinimumHeight();
+                avatar.setMinimumHeight(350);
                 break;
 
             case (2):
-                nome.setMinimumHeight();
+                nome.setMinimumHeight(300);
                 break;
             case (3):
-                password.setMinimumHeight();
+                password.setMinimumHeight(300);
                 break;
 
         }
     //fine espandi
     }
+
     public void comprimi (int fragment){
         //TODO
         switch (fragment){
-
             case (1):
                 avatar.setMinimumHeight(100);
                 break;
@@ -55,8 +55,6 @@ public class Impostazioni extends AppCompatActivity {
             case (3):
                 password.setMinimumHeight(100);
                 break;
-
-
         }
     //fine comprimi
     }
