@@ -1,11 +1,8 @@
 package com.example.progettoingsw;
 
-import android.content.Intent;
 import android.text.Editable;
-import android.view.View;
 
 import com.example.progettoingsw.ENTITY.Utente;
-import com.example.progettoingsw.GUI.home.Home;
 
 public class LogicCenter {
 
