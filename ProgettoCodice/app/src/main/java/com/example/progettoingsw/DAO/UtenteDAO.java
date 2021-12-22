@@ -1,5 +1,7 @@
 package com.example.progettoingsw.DAO;
 
+import android.media.Image;
+
 public class UtenteDAO {
 
 
@@ -13,5 +15,31 @@ public class UtenteDAO {
     public boolean registrati(String username, String password) {
         //todo
         return true;
+    }
+
+    public boolean cambianome(String username, String password) {
+        //todo
+        return true;
+    }
+    public boolean cambiaimmagine(Image immagine) {
+        //todo
+        return true;
+    }
+    public boolean cambiapassword(String username, String password, String nuovapassword) {
+        //todo
+        return true;
+    }
+    public String recuperapassword(String username){
+
+        //todo se l'username è presente allora: invia codice altrimenti errore
+        inviacodice();
+
+        return null;//todo
+    }
+    private int inviacodice(){
+        int codice=0;
+        //todo genera codice per il recupero
+
+        return codice;
     }
 }

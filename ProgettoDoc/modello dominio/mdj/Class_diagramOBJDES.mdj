@@ -2647,6 +2647,7 @@
 											"model": {
 												"$ref": "AAAAAAF9TbIl/u8mOlw="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 1069,
 											"top": 1077,
@@ -2678,7 +2679,7 @@
 									"left": 1064,
 									"top": 1010,
 									"width": 177.24169921875,
-									"height": 85
+									"height": 70
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",

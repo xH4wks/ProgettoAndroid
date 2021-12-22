@@ -34,6 +34,27 @@ public class Utente {
         return  result;
     }
 
+    //registrazione
+    public boolean cambianome(Utente u) {
+        UtenteDAO ud = new UtenteDAO();
+        boolean result = ud.cambianome(u.username,u.password);
+
+        return  result;
+    }
+    //registrazione
+    public boolean cambiapassword(Utente u,String nuovapassword) {
+        UtenteDAO ud = new UtenteDAO();
+        boolean result = ud.cambiapassword(u.username,u.password,nuovapassword);
+
+        return  result;
+    }
+    //registrazione
+    public boolean cambiaimmagine(Image i) {
+        UtenteDAO ud = new UtenteDAO();
+        boolean result = ud.cambiaimmagine(i);
+
+        return  result;
+    }
 
 
 
