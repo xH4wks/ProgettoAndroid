@@ -5,16 +5,27 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.SyncStateContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.GUI.home.Home;
 import com.example.progettoingsw.MainActivity;
 import com.example.progettoingsw.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class LoginFragment extends Fragment {
@@ -53,6 +64,33 @@ public class LoginFragment extends Fragment {
         return  view;
     }
 
+    public void  getLoginVolley(){
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        String url = R.string.Base_URL+"login";
+        // Formulate the request and handle the response.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            //todo prima bisogna completare spring
+                        }
+                        catch (JSONException e){
+                            e.printStackTrace();
+                        }
 
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Handle error
+                    }
+                });
+
+// Add the request to the RequestQueue.
+        requestQueue.add(stringRequest);
+    }
 
 }

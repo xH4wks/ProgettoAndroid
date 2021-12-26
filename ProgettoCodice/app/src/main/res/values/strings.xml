@@ -14,4 +14,5 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM">AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM</string>
+    <string name="Base_URL">https://localhost:8080/</string>
 </resources>
