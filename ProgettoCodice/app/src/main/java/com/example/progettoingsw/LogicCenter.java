@@ -1,6 +1,7 @@
 package com.example.progettoingsw;
 
 import android.text.Editable;
+import android.widget.EditText;
 
 import com.example.progettoingsw.ENTITY.Utente;
 
@@ -37,7 +38,7 @@ public class LogicCenter {
     }
 
 
-    public void cambiapassword(Editable nuovonome, Editable password) {
+    public void cambianome(Editable nuovonome, Editable password) {
         //todo non ho ancora idea di come salvare le informazioni dell'utente
         //all'interno dell' app
     }

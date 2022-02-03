@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
 
 /**
@@ -15,6 +18,9 @@ import com.example.progettoingsw.R;
  * create an instance of this fragment.
  */
 public class Cambia_nome extends Fragment {
+
+    private Button conferma;
+    private EditText nuovo_nome,password;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,6 +66,17 @@ public class Cambia_nome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cambia_nome, container, false);
+        View view = inflater.inflate(R.layout.fragment_cambia_nome, container, false);
+        conferma = (Button) view.findViewById(R.id.impostazioni_cambianome_buttonconferma);
+        nuovo_nome = (EditText) view.findViewById(R.id.impostazioni_cambianome_textnuovonome);
+        password = (EditText) view.findViewById(R.id.impostazioni_cambianome_textpassword);
+        conferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LogicCenter l =new LogicCenter();
+                l.cambianome(nuovo_nome.getText(),password.getText());
+            }
+        });
+        return view;
     }
 }
