@@ -15,4 +15,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM">AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM</string>
     <string name="Base_URL">https://localhost:8080/</string>
+    <string name="title_activity_impostazioni">Impostazioni</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

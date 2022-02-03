@@ -15,9 +15,13 @@
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/app_bar_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/content_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_cambia_avatar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_cambia_nome.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_cambia_password.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_cambiaavatar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_cambianome.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_impostazioni.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_maps.xml" value="0.19114583333333332" />
         <entry key="..\:/Users/gerry/Desktop/ProgettoAndroid/ProgettoCodice/app/src/main/res/layout/fragment_menu_laterale.xml" value="0.33" />
