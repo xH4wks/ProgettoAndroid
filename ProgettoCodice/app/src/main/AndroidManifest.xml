@@ -7,7 +7,6 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,6 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgettoINGSW">
+        <activity
+            android:name=".GUI.homev2.Homev2"
+            android:exported="false"
+            android:label="@string/title_activity_homev2"
+            android:theme="@style/Theme.ProgettoINGSW.NoActionBar" />
         <activity
             android:name=".GUI.impostazioni.Impostazioni"
             android:exported="false"

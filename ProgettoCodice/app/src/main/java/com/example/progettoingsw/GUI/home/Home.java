@@ -10,11 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.progettoingsw.GUI.homev2.Homev2;
 import com.example.progettoingsw.GUI.impostazioni.Impostazioni;
 import com.example.progettoingsw.R;
 
 public class Home extends AppCompatActivity {
-    private Button impostazioni;
+    private Button impostazioni,homev2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,15 @@ public class Home extends AppCompatActivity {
                 startActivity(imp);
             }
         });
+        homev2 = (Button) findViewById(R.id.Home_homev2button);
+        homev2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent imp = new Intent(Home.this, Homev2.class);
+                startActivity(imp);
+            }
+        });
+
     }
 
 

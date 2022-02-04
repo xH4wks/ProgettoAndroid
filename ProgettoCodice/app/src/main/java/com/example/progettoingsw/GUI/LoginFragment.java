@@ -2,16 +2,13 @@ package com.example.progettoingsw.GUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.provider.SyncStateContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,9 +16,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.progettoingsw.GUI.homev2.Homev2;
 import com.example.progettoingsw.LogicCenter;
-import com.example.progettoingsw.GUI.home.Home;
-import com.example.progettoingsw.MainActivity;
 import com.example.progettoingsw.R;
 
 import org.json.JSONException;
@@ -53,7 +49,7 @@ public class LoginFragment extends Fragment {
                 LogicCenter l = new LogicCenter();
 
                 if (l.apriHome(email.getText(),password.getText())){
-                    Intent home = new Intent(getActivity(),Home.class);
+                    Intent home = new Intent(getActivity(), Homev2.class);
                     startActivity(home);
                 }
             }
