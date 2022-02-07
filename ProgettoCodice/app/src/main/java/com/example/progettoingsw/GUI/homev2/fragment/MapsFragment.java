@@ -1,4 +1,4 @@
-package com.example.progettoingsw.GUI.home;
+package com.example.progettoingsw.GUI.homev2.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

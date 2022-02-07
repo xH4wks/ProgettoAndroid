@@ -9,7 +9,7 @@
     tools:context=".GUI.RegistratiFragment">
 
     <Button
-        android:id="@+id/buttonContinua"
+        android:id="@+id/Registrati_buttonContinua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/textEmail"
+        android:id="@+id/Registrati_textEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -48,7 +48,7 @@
         android:layout_marginTop="39dp"
         android:text="password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/Registrati_textEmail" />
 
     <TextView
         android:id="@+id/labelConferma"
@@ -58,10 +58,10 @@
         android:layout_marginTop="39dp"
         android:text="conferma password"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Registrati_textPassword" />
 
     <EditText
-        android:id="@+id/textConferma"
+        android:id="@+id/Registrati_textConfermapss"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/labelConferma" />
 
     <EditText
-        android:id="@+id/textPassword"
+        android:id="@+id/Registrati_textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"

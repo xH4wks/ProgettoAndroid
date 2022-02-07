@@ -20,7 +20,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.example.progettoingsw.GUI.home.MapsFragment"
+        android:name="com.example.progettoingsw.GUI.homev2.fragment.MapsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="81dp"

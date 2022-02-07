@@ -1,18 +1,22 @@
 package com.example.progettoingsw;
 
 import android.text.Editable;
-import android.widget.EditText;
 
 import com.example.progettoingsw.ENTITY.Utente;
 
 public class LogicCenter {
 
+    //per salvare le informazioni dell'utente creiamo degli attributi
+    //statici  in modo da tenere traccia dei cambiamenti di nome password etc
+    //direttamente all'interno del centro logico.
 
-    public boolean apriHome(Editable username, Editable password) {
+
+    public boolean apriHome(String username, String password) {
 
 
-        Utente u = new Utente(username.toString(),password.toString());
+        Utente u = new Utente(username,password);
         if (u.login(u)){
+
             return true;
         }
 
@@ -24,9 +28,9 @@ public class LogicCenter {
 
     }
 
-    public boolean registrazione (Editable username, Editable password){
+    public boolean registrazione (String username, String password){
 
-        Utente u = new Utente(username.toString(),password.toString());
+        Utente u = new Utente(username,password);
         if(u.registrati(u)){
             return  true;
         }

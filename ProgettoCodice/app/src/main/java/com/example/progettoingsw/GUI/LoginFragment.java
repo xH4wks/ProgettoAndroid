@@ -41,14 +41,15 @@ public class LoginFragment extends Fragment {
         //component
         Button accesso = (Button) view.findViewById(R.id.buttonaccedi);
         email = (EditText) view.findViewById(R.id.textEmaillogin);
-        password = (EditText) view.findViewById(R.id.textPassword);
+        password = (EditText) view.findViewById(R.id.Registrati_textPassword);
         accesso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 LogicCenter l = new LogicCenter();
 
-                if (l.apriHome(email.getText(),password.getText())){
+                if (l.apriHome(email.getText().toString(),password.getText().toString())){
+
                     Intent home = new Intent(getActivity(), Homev2.class);
                     startActivity(home);
                 }

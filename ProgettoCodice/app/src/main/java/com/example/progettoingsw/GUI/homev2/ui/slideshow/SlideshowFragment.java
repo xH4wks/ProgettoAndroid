@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.progettoingsw.databinding.FragmentSlideshowBinding;
 
+
 public class SlideshowFragment extends Fragment {
 
     private FragmentSlideshowBinding binding;

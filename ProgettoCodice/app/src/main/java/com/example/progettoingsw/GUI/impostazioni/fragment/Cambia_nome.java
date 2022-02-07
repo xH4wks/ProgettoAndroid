@@ -75,6 +75,7 @@ public class Cambia_nome extends Fragment {
             public void onClick(View view) {
                 LogicCenter l =new LogicCenter();
                 l.cambianome(nuovo_nome.getText(),password.getText());
+
             }
         });
         return view;

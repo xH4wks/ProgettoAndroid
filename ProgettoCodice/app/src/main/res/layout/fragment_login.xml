@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textEmaillogin" />
 
     <EditText
-        android:id="@+id/textPassword"
+        android:id="@+id/Registrati_textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
@@ -70,7 +70,7 @@
         android:layout_marginStart="33dp"
         android:text="Resta connesso"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Registrati_textPassword" />
 
     <Button
         android:id="@+id/buttonGoogleaccess"
