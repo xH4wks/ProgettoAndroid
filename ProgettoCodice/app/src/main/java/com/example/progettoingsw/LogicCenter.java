@@ -1,7 +1,5 @@
 package com.example.progettoingsw;
 
-import android.text.Editable;
-
 import com.example.progettoingsw.ENTITY.Utente;
 
 public class LogicCenter {
@@ -46,9 +44,28 @@ public class LogicCenter {
     }
 
 
-    public void cambianome(Editable nuovonome, Editable password) {
-        //todo non ho ancora idea di come salvare le informazioni dell'utente
-        //all'interno dell' app
+    public boolean cambianome(String nuovonome, String password) {
+        Utente u = new Utente(nuovonome,password);
+        if(u.cambianome(u,nomesessione)){
+            setNomesessione(nuovonome);
+            return  true;
+        }
+        else{
+            //todo
+            return  false;
+        }
+
+    }
+    public boolean cambipassword(String nuovapassword, String vecchiapassword) {
+        Utente u = new Utente(nomesessione,nuovapassword);
+        if(u.cambiapassword(u,vecchiapassword)){
+            setPasswordsessione(nuovapassword);
+            return  true;
+        }
+        else{
+            //todo
+            return  false;
+        }
     }
 
     //getter and setter
@@ -67,5 +84,6 @@ public class LogicCenter {
     public static void setPasswordsessione(String passwordsessione) {
         LogicCenter.passwordsessione = passwordsessione;
     }
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.progettoingsw.GUI.impostazioni.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,10 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.progettoingsw.GUI.homev2.Homev2;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,7 +77,17 @@ public class Cambia_nome extends Fragment {
             @Override
             public void onClick(View view) {
                 LogicCenter l =new LogicCenter();
-                l.cambianome(nuovo_nome.getText(),password.getText());
+                if (l.cambianome(nuovo_nome.getText().toString(),password.getText().toString())){
+                    Snackbar.make(view, "nome cambiato con successo, ritorno alla home in corso", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    Intent imp = new Intent(getActivity(), Homev2.class);
+                    startActivity(imp);
+                }
+                else{
+                    //messaggio di errore ma si resta sulla stessa pagina
+                    Snackbar.make(view, "Errore durante il cambio del nome, riprovare", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
 
             }
         });

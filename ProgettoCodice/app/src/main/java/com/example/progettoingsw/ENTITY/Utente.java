@@ -34,21 +34,21 @@ public class Utente {
         return  result;
     }
 
-    //registrazione
-    public boolean cambianome(Utente u) {
+    //cambia nome
+    public boolean cambianome(Utente u, String nomesessione) {
         UtenteDAO ud = new UtenteDAO();
-        boolean result = ud.cambianome(u.username,u.password);
+        boolean result = ud.cambianome(u.username,u.password,nomesessione);
 
         return  result;
     }
-    //registrazione
+    //cambia password
     public boolean cambiapassword(Utente u,String nuovapassword) {
         UtenteDAO ud = new UtenteDAO();
         boolean result = ud.cambiapassword(u.username,u.password,nuovapassword);
 
         return  result;
     }
-    //registrazione
+    //cambia immagine
     public boolean cambiaimmagine(Image i) {
         UtenteDAO ud = new UtenteDAO();
         boolean result = ud.cambiaimmagine(i);

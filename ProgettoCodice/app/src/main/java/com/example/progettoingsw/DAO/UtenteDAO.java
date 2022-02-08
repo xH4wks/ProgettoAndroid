@@ -18,7 +18,7 @@ public class UtenteDAO {
         return true;
     }
 
-    public boolean cambianome(String username, String password) {
+    public boolean cambianome(String username, String password, String nomesessione) {
         //todo
         return true;
     }
