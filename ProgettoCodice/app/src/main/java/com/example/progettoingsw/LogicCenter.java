@@ -34,6 +34,8 @@ public class LogicCenter {
 
         Utente u = new Utente(username,password);
         if(u.registrati(u)){
+            setNomesessione(username);
+            setPasswordsessione(password);
             return  true;
         }
         else{

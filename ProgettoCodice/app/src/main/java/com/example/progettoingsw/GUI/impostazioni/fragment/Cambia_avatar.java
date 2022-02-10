@@ -1,9 +1,11 @@
 package com.example.progettoingsw.GUI.impostazioni.fragment;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
@@ -16,6 +18,8 @@ import com.example.progettoingsw.R;
  */
 public class Cambia_avatar extends Fragment {
 
+
+    private ImageView avatarcorrente,avatar2,avatar3,avatar4,avatar5,avatar6,avatar7;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,6 +64,64 @@ public class Cambia_avatar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cambia_avatar, container, false);
+        View view = inflater.inflate(R.layout.fragment_cambia_avatar, container, false);
+        avatarcorrente = view.findViewById(R.id.imageView2);
+        avatar2 = view.findViewById(R.id.imageView);
+        avatar3 = view.findViewById(R.id.imageView3);
+        avatar4 = view.findViewById(R.id.imageView4);
+        avatar5 = view.findViewById(R.id.imageView5);
+        avatar6 = view.findViewById(R.id.imageView6);
+        avatar7 = view.findViewById(R.id.imageView7);
+
+        /* to make operative
+                avatar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scambia(avatarcorrente,avatar2);
+            }
+        });
+        avatar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scambia(avatarcorrente,avatar3);
+            }
+        });
+        avatar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scambia(avatarcorrente,avatar4);
+            }
+        });
+        avatar5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scambia(avatarcorrente,avatar5);
+            }
+        });
+        avatar6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scambia(avatarcorrente,avatar6);
+            }
+        });
+        avatar7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scambia(avatarcorrente,avatar7);
+            }
+        });
+         */
+
+
+
+        return view;
+    }
+
+    private void scambia(ImageView corrente, ImageView nuova){
+         Drawable temp;
+         temp= corrente.getDrawable();
+         corrente.setImageDrawable(nuova.getDrawable());
+         nuova.setImageDrawable(temp);
+
     }
 }
