@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.progettoingsw.GUI.homev2.Homev2;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
-import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,16 +79,14 @@ public class Cambia_password extends Fragment {
             public void onClick(View view) {
                 LogicCenter l =new LogicCenter();
                 if (l.cambipassword(nuovapassword.getText().toString(),vecchiapassword.getText().toString())){
-                    Snackbar.make(view, "password cambiata con successo, ritorno alla home in corso", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    Toast.makeText(getActivity(), "password cambiata con successo", Toast.LENGTH_SHORT).show();
                     Intent imp = new Intent(getActivity(), Homev2.class);
                     startActivity(imp);
 
                 }
                 else{
                     //messaggio di errore ma si resta sulla stessa pagina
-                    Snackbar.make(view, "Errore durante il cambio della password, riprovare", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    Toast.makeText(getActivity(), "Errore durante il cambiamento della password", Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -65,19 +65,19 @@ public class Cambia_avatar extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cambia_avatar, container, false);
-        avatarcorrente = view.findViewById(R.id.imageView2);
-        avatar2 = view.findViewById(R.id.imageView);
-        avatar3 = view.findViewById(R.id.imageView3);
-        avatar4 = view.findViewById(R.id.imageView4);
-        avatar5 = view.findViewById(R.id.imageView5);
-        avatar6 = view.findViewById(R.id.imageView6);
-        avatar7 = view.findViewById(R.id.imageView7);
+        avatarcorrente = (ImageView) view.findViewById(R.id.imageView2);
+        avatar2 = (ImageView) view.findViewById(R.id.imageView);
+        avatar3 = (ImageView) view.findViewById(R.id.imageView3);
+        avatar4 = (ImageView) view.findViewById(R.id.imageView4);
+        avatar5 = (ImageView) view.findViewById(R.id.imageView5);
+        avatar6 = (ImageView) view.findViewById(R.id.imageView6);
+        avatar7 = (ImageView) view.findViewById(R.id.imageView7);
 
-        /* to make operative
-                avatar2.setOnClickListener(new View.OnClickListener() {
+        /*
+        avatar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scambia(avatarcorrente,avatar2);
+                //scambia(avatarcorrente,avatar2);
             }
         });
         avatar3.setOnClickListener(new View.OnClickListener() {
