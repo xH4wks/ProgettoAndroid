@@ -13,7 +13,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM">AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM</string>
+    <string name="APIkey">AIzaSyDLwU7VuLo7vQK8OVVdiZb-QfpXMou98rY</string>
     <string name="Base_URL">https://localhost:8080/</string>
     <string name="title_activity_impostazioni">Impostazioni</string>
     <string name="tab_text_1">Tab 1</string>
