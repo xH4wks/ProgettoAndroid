@@ -3,12 +3,13 @@ package com.example.progettoingsw.DAO;
 import android.media.Image;
 
 public class UtenteDAO {
-
+    private String url = "https://localhost:8080/";
 
 
 
     public boolean login (String username, String password){
         //todo
+        String login = url+"login/";
         return true;
     }
 
@@ -17,7 +18,7 @@ public class UtenteDAO {
         return true;
     }
 
-    public boolean cambianome(String username, String password) {
+    public boolean cambianome(String username, String password, String nomesessione) {
         //todo
         return true;
     }
@@ -42,4 +43,6 @@ public class UtenteDAO {
 
         return codice;
     }
+
+
 }

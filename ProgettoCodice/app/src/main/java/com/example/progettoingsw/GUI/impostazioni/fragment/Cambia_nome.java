@@ -1,22 +1,29 @@
-package com.example.progettoingsw.GUI.impostazioni;
+package com.example.progettoingsw.GUI.impostazioni.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
+import com.example.progettoingsw.GUI.homev2.Homev2;
+import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link cambiaavatar#newInstance} factory method to
+ * Use the {@link Cambia_nome#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class cambiaavatar extends Fragment {
+public class Cambia_nome extends Fragment {
+
+    private Button conferma;
+    private EditText nuovo_nome,password;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,12 +33,8 @@ public class cambiaavatar extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private static final int  ID = 1;
-    private Button espandi;
-    private  boolean aperto = false;
-    private  Impostazioni imp;
 
-    public cambiaavatar() {
+    public Cambia_nome() {
         // Required empty public constructor
     }
 
@@ -41,11 +44,11 @@ public class cambiaavatar extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment cambiaavatar.
+     * @return A new instance of fragment Cambia_nome.
      */
     // TODO: Rename and change types and number of parameters
-    public static cambiaavatar newInstance(String param1, String param2) {
-        cambiaavatar fragment = new cambiaavatar();
+    public static Cambia_nome newInstance(String param1, String param2) {
+        Cambia_nome fragment = new Cambia_nome();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,20 +69,27 @@ public class cambiaavatar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_cambiaavatar, container, false);
-        espandi = (Button) v.findViewById(R.id.avatar_bottoneespandi);
-        espandi.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_cambia_nome, container, false);
+        conferma = (Button) view.findViewById(R.id.impostazioni_cambianome_buttonconferma);
+        nuovo_nome = (EditText) view.findViewById(R.id.impostazioni_cambianome_textnuovonome);
+        password = (EditText) view.findViewById(R.id.impostazioni_cambianome_textpassword);
+        conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                LogicCenter l =new LogicCenter();
+                if (l.cambianome(nuovo_nome.getText().toString(),password.getText().toString())){
+                    Toast.makeText(getActivity(), "nome cambiato con successo", Toast.LENGTH_SHORT).show();
+                    Intent imp = new Intent(getActivity(), Homev2.class);
+                    startActivity(imp);
+                }
+                else{
+                    //messaggio di errore ma si resta sulla stessa pagina
+                    Toast.makeText(getActivity(), "Errore durante il cambiamento del nome", Toast.LENGTH_SHORT).show();
 
-                if (aperto){
-                    imp.comprimi(ID);
                 }
-                else {
-                    imp.espandi(ID);
-                }
+
             }
         });
-        return v;
+        return view;
     }
 }
