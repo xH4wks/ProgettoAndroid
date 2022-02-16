@@ -3,6 +3,7 @@ package com.example.progettoingsw.GUI.homev2.fragment;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -23,13 +24,12 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsFragment extends Fragment {
 
     //attributi aggiunti
-    private double longitude =0.00;
-    private double latitude =0.00;
+    private double longitude = 0.00;
+    private double latitude = 0.00;
 
     //fine
 
@@ -53,7 +53,18 @@ public class MapsFragment extends Fragment {
 
             LatLng posizione = new LatLng(latitude, longitude);
 
-            googleMap.addMarker(new MarkerOptions().position(posizione).title("Marker in posizione corrente"));
+            //googleMap.addMarker(new MarkerOptions().position(posizione).title("Marker in posizione corrente"));
+            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                ActivityCompat.requestPermissions(getActivity(), new String[] { ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION },1);
+            }
+            googleMap.setMyLocationEnabled(true);
 
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(posizione));
 
@@ -82,7 +93,7 @@ public class MapsFragment extends Fragment {
             ActivityCompat.requestPermissions(getActivity(), new String[] { ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION },1);
 
         }
-        Location location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         longitude = location.getLongitude();
         latitude = location.getLatitude();
 
