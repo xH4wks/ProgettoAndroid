@@ -30,6 +30,7 @@ public class MapsFragment extends Fragment {
     //attributi aggiunti
     private double longitude = 0.00;
     private double latitude = 0.00;
+    private Location location = null;
 
     //fine
 
@@ -93,7 +94,7 @@ public class MapsFragment extends Fragment {
             ActivityCompat.requestPermissions(getActivity(), new String[] { ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION },1);
 
         }
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         longitude = location.getLongitude();
         latitude = location.getLatitude();
 
