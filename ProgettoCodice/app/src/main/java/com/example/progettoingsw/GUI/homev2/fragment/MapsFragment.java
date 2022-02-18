@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,12 +26,15 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+
 public class MapsFragment extends Fragment {
 
     //attributi aggiunti
     private double longitude = 0.00;
     private double latitude = 0.00;
     private Location location = null;
+    ArrayList<Location> percorsi = null ;
 
     //fine
 
@@ -97,6 +101,9 @@ public class MapsFragment extends Fragment {
         location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         longitude = location.getLongitude();
         latitude = location.getLatitude();
+        carica_percorsi();
+
+
 
         //
         return view;
@@ -112,5 +119,10 @@ public class MapsFragment extends Fragment {
         }
     }
 
+    private void carica_percorsi (){
+        LogicCenter logicCenter = new LogicCenter();
+        logicCenter.caricapercorsi(percorsi);
+
+    }
 
 }

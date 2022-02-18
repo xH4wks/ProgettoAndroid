@@ -1,6 +1,10 @@
 package com.example.progettoingsw;
 
+import android.location.Location;
+
 import com.example.progettoingsw.ENTITY.Utente;
+
+import java.util.ArrayList;
 
 public class LogicCenter {
 
@@ -88,4 +92,11 @@ public class LogicCenter {
     }
 
 
+    public ArrayList<Location> caricapercorsi(ArrayList<Location> percorsi) {
+
+        //todo dopo il completamento del backend
+
+
+    return percorsi;
+    }
 }

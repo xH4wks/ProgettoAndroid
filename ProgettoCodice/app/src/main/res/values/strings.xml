@@ -16,7 +16,7 @@
     <!--
     <string name="APIkey">AIzaSyDLwU7VuLo7vQK8OVVdiZb-QfpXMou98rY</string>
     -->
-    
+
     <string name="APIkey">AIzaSyDRsJPzn34e2zENXmqSQuHoDH_p0yGeaAM</string>
 
     <string name="Base_URL">https://localhost:8080/</string>
