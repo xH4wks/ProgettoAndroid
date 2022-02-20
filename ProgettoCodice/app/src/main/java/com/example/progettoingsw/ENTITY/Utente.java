@@ -9,7 +9,7 @@ public class Utente {
     private String username;
     private  String password;
     private Image immagine_profilo;
-    // variabile per la posizione todo
+
 
     //costruttore per login
     public Utente(String Username, String Password){

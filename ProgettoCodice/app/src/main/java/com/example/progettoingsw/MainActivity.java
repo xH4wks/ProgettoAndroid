@@ -31,7 +31,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     Button accedi, registrati, indietro;
-    FusedLocationProviderClient fusedLocationProviderClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         registrati = (Button) findViewById(R.id.buttonRegistrati);
         indietro = (Button) findViewById(R.id.indietro);
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
 
 
         accedi.setOnClickListener(new View.OnClickListener() {
@@ -82,42 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
         //fine on create
     }
-
-    private void getLocation() {
-
-        // TODO: Consider calling
-        //    ActivityCompat#requestPermissions
-        // here to request the missing permissions, and then overriding
-        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-        //                                          int[] grantResults)
-        // to handle the case where the user grants the permission. See the documentation
-        // for ActivityCompat#requestPermissions for more details.
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-
-                @Override
-
-                public void onComplete(@NonNull Task<Location> task) {
-
-                    Location location = task.getResult();
-                    if (location != null) {
-
-                        try {
-
-                            Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
-
-                            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }
-            });
-        }
-    }
-
 
 
     private void replaceFragment(Fragment fragment) {

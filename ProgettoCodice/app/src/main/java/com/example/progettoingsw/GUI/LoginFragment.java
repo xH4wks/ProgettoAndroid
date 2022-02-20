@@ -2,11 +2,13 @@ package com.example.progettoingsw.GUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -19,9 +21,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.progettoingsw.GUI.homev2.Homev2;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 
 public class LoginFragment extends Fragment {
@@ -49,45 +48,42 @@ public class LoginFragment extends Fragment {
                 LogicCenter l = new LogicCenter();
 
                 if (l.apriHome(email.getText().toString(),password.getText().toString())){
-
+                    getLoginVolley();
                     Intent home = new Intent(getActivity(), Homev2.class);
                     startActivity(home);
                 }
             }
         });
-        //accesso google e facebook  todo
+        //todo accesso google e facebook
 
         //end component
         return  view;
     }
 
-    public void  getLoginVolley(){
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        String url = R.string.Base_URL+"login";
-        // Formulate the request and handle the response.
+    public void  getLoginVolley() {
+
+// ...
+
+// Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        String url =  "http://localhost:8080/login";
+
+// Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            //todo prima bisogna completare spring
-                        }
-                        catch (JSONException e){
-                            e.printStackTrace();
-                        }
-
+                        // Display the first 500 characters of the response string.
+                        Toast.makeText(getActivity(), response, Toast.LENGTH_LONG).show();
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Handle error
-                    }
-                });
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.v("erroreHTTP",error.toString());
+            }
+        });
 
 // Add the request to the RequestQueue.
-        requestQueue.add(stringRequest);
+        queue.add(stringRequest);
     }
-
 }
