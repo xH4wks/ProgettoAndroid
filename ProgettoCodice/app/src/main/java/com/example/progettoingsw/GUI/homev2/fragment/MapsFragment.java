@@ -6,9 +6,12 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +21,22 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.progettoingsw.LogicCenter;
+import com.example.progettoingsw.MainActivity;
 import com.example.progettoingsw.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Executor;
 
 public class MapsFragment extends Fragment {
 
@@ -34,7 +44,7 @@ public class MapsFragment extends Fragment {
     private double longitude = 0.00;
     private double latitude = 0.00;
     private Location location = null;
-    ArrayList<Location> percorsi = null ;
+
 
     //fine
 
@@ -59,7 +69,7 @@ public class MapsFragment extends Fragment {
             LatLng posizione = new LatLng(latitude, longitude);
 
             //googleMap.addMarker(new MarkerOptions().position(posizione).title("Marker in posizione corrente"));
-            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(getActivity(), ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
                 // here to request the missing permissions, and then overriding
@@ -98,16 +108,16 @@ public class MapsFragment extends Fragment {
             ActivityCompat.requestPermissions(getActivity(), new String[] { ACCESS_FINE_LOCATION,ACCESS_COARSE_LOCATION },1);
 
         }
-        location = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        longitude = location.getLongitude();
-        latitude = location.getLatitude();
-        carica_percorsi();
 
 
+        if (location == null){
+            location = getLocation();
+        }
 
         //
         return view;
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -119,10 +129,12 @@ public class MapsFragment extends Fragment {
         }
     }
 
-    private void carica_percorsi (){
-        LogicCenter logicCenter = new LogicCenter();
-        logicCenter.caricapercorsi(percorsi);
 
+    public Location getLocation() {
+        return location;
     }
 
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 }
