@@ -7,4 +7,12 @@
         android:title="Impostazioni"
         app:showAsAction="never"
         />
+
+    <item
+        android:id="@+id/action_search"
+        android:title="search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"/>
+
 </menu>

@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -26,9 +30,17 @@ public class Homev2 extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomev2Binding binding;
 
+    //prova suggerimenti ricerca
+    private ListView listView;
+    String[] name = {"Christopher", "Jenny","Haria", "steve", "Chris","Ivana","Hichael","Craig",
+            "Kelly", "Jospeh","Christene", "Sergio", "Mubariz", "Mike", "Alex"};
+
+    ArrayAdapter<String> arrayAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         binding = ActivityHomev2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -52,6 +64,10 @@ public class Homev2 extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_homev2);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        listView = findViewById(R.id.listview);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, name);
+        listView.setAdapter(arrayAdapter);
         
     }
 
@@ -59,8 +75,38 @@ public class Homev2 extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.homev2, menu);
+
+        //azioni aggiunte eliminabili
+        //MenuItem menuItem = menu.findItem(R.id.action_search);
+        //SearchView searchView = (SearchView) menuItem.getActionView();
+
         return true;
     }
+
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.homev2, menu);
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        //problema con search view
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setQueryHint("Cerca qui");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
+    }*/
 
 
 
@@ -84,6 +130,26 @@ public class Homev2 extends AppCompatActivity {
 
             case R.id.menulaterale_percorsicaricati:
                 //todo
+                return true;
+
+            case R.id.action_search:
+                SearchView searchView = (SearchView) item.getActionView();
+                searchView.setQueryHint("Cerca qui");
+
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+
+                        arrayAdapter.getFilter().filter(newText);
+
+                        return false;
+                    }
+                });
                 return true;
 
             default:
