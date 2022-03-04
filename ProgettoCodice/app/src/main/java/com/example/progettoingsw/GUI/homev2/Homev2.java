@@ -134,18 +134,17 @@ public class Homev2 extends AppCompatActivity {
 
             case R.id.action_search:
                 SearchView searchView = (SearchView) item.getActionView();
-                searchView.setQueryHint("Cerca qui");
+
 
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        return false;
-                    }
+                    public boolean onQueryTextSubmit(String query) {return false;}
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
 
                         arrayAdapter.getFilter().filter(newText);
+                        listView.setVisibility(searchView.VISIBLE);
 
                         return false;
                     }
