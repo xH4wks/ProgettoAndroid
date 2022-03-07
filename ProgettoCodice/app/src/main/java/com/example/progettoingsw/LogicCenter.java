@@ -1,8 +1,11 @@
 package com.example.progettoingsw;
 
+import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
 
 import com.example.progettoingsw.ENTITY.Utente;
+import com.example.progettoingsw.GUI.homev2.Homev2;
 
 import java.util.ArrayList;
 
@@ -12,25 +15,16 @@ public class LogicCenter {
     //per salvare le informazioni dell'utente creiamo degli attributi
     //statici  in modo da tenere traccia dei cambiamenti di nome password etc
     //direttamente all'interno del centro logico.
-    private static String nomesessione;
-    private static String passwordsessione;
+    private static String nomesessione;//Da eliminare
+    private static String passwordsessione;//da eliminare
+    private static Utente utenteloggato;
 
+    //per tenere traccia dell'utente, login.
+    public void apriHome(Context activity,Utente user) {
 
-    public boolean apriHome(String username, String password) {
-
-
-        Utente u = new Utente(username,password);
-        if (u.login(u)){
-            setNomesessione(username);
-            setPasswordsessione(password);
-            return true;
-        }
-
-        else {
-            //todo
-            return false;
-        }
-
+        Intent home = new Intent(activity, Homev2.class);
+        activity.startActivity(home);
+        utenteloggato= user;
 
     }
 

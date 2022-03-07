@@ -7,15 +7,22 @@ import com.example.progettoingsw.DAO.UtenteDAO;
 public class Utente {
 
     private String username;
-    private  String password;
-    private Image immagine_profilo;
+    private String password;
+    private String immagine_profilo;
+    private String email;
 
 
-    //costruttore per login
-    public Utente(String Username, String Password){
-        this.username=Username;
-        this.password=Password;
+    //costruttore
+
+    public Utente(String username, String password, String immagine_profilo, String email) {
+        this.username = username;
+        this.password = password;
+        this.immagine_profilo = immagine_profilo;
+        this.email = email;
     }
+    //da eliminare, la sua esistenza è contemplata solo fino al rimpiazzo dei metodi
+    // che andranno ad interfaccairsi con il server
+    public Utente(String username, String password){}
 
     //login
     public  boolean login(Utente u){
@@ -64,7 +71,7 @@ public class Utente {
         this.username = username;
     }
 
-    public void setImmagine_profilo(Image immagine_profilo) {
+    public void setImmagine_profilo(String immagine_profilo) {
         this.immagine_profilo = immagine_profilo;
     }
 

@@ -42,8 +42,6 @@ public class MapsFragment extends Fragment {
     private double latitude = 0.00;
     private Location location = null;
     private FusedLocationProviderClient fusedLocationProviderClient;
-
-
     //fine
 
 
