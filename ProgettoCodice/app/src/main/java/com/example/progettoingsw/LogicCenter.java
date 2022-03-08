@@ -28,19 +28,11 @@ public class LogicCenter {
 
     }
 
-    public boolean registrazione (String username, String password){
-
-        Utente u = new Utente(username,password);
-        if(u.registrati(u)){
-            setNomesessione(username);
-            setPasswordsessione(password);
-            return  true;
-        }
-        else{
-            //todo
-            return  false;
-        }
-
+    //dopo una registrazione andata a buon fine loggiamo l'utente all'interno dell'applicazione
+    public void registrazione (Context activity, Utente user){
+        Intent home = new Intent(activity, Homev2.class);
+        activity.startActivity(home);
+        utenteloggato= user;
     }
 
 

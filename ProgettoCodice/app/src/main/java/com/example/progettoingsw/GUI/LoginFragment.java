@@ -48,6 +48,8 @@ public class LoginFragment extends Fragment {
                 getLoginVolley();
             }
         });
+
+
         //todo accesso google e facebook
 
         //end component

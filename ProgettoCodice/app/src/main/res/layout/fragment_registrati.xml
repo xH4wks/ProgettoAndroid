@@ -42,21 +42,11 @@
         app:layout_constraintTop_toBottomOf="@+id/labelEmail" />
 
     <TextView
-        android:id="@+id/labelPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="39dp"
-        android:text="password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Registrati_textEmail" />
-
-    <TextView
         android:id="@+id/labelConferma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
         android:text="conferma password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Registrati_textPassword" />
@@ -65,8 +55,7 @@
         android:id="@+id/Registrati_textConfermapss"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp"
+        android:layout_marginStart="32dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,12 +65,22 @@
         android:id="@+id/Registrati_textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="33dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelPassword" />
+
+    <TextView
+        android:id="@+id/labelPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Registrati_textEmail" />
 
     <TextView
         android:id="@+id/labeltitoloregistrazione"
@@ -91,5 +90,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="username"
+        app:layout_constraintTop_toBottomOf="@+id/Registrati_textConfermapss"
+        tools:layout_editor_absoluteX="32dp" />
+
+    <EditText
+        android:id="@+id/Registrati_textusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
