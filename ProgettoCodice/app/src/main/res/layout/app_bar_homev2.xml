@@ -36,6 +36,28 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/plus" />
+
+    <Button
+        android:id="@+id/home_bottone_aggiungi_gpx"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="80dp"
+        android:text="Carica file gpx"
+        android:visibility="invisible" />
+
+
+    <Button
+        android:id="@+id/home_bottone_traccia_percorso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="130dp"
+        android:text="Aggiungi percorso"
+        android:visibility="invisible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
