@@ -1,11 +1,12 @@
 package com.example.progettoingsw.GUI.impostazioni.fragment;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -20,6 +21,7 @@ public class Cambia_avatar extends Fragment {
 
 
     private ImageView avatarcorrente,avatar2,avatar3,avatar4,avatar5,avatar6,avatar7;
+    private Button conferma;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -72,6 +74,7 @@ public class Cambia_avatar extends Fragment {
         avatar5 = (ImageView) view.findViewById(R.id.imageView5);
         avatar6 = (ImageView) view.findViewById(R.id.imageView6);
         avatar7 = (ImageView) view.findViewById(R.id.imageView7);
+        conferma = view.findViewById(R.id.button_cambiaavatarconferma);
 
         /*
         avatar2.setOnClickListener(new View.OnClickListener() {
@@ -111,17 +114,16 @@ public class Cambia_avatar extends Fragment {
             }
         });
          */
-
+        conferma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"to be implemented", Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         return view;
     }
 
-    private void scambia(ImageView corrente, ImageView nuova){
-         Drawable temp;
-         temp= corrente.getDrawable();
-         corrente.setImageDrawable(nuova.getDrawable());
-         nuova.setImageDrawable(temp);
 
-    }
 }

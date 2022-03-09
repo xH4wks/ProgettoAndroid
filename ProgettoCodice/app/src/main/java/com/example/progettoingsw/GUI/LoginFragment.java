@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment {
     }
 
     //richiesta HTTP per l'accesso con la ricezione del file Json con tutte le informazioni dell'utente
-    public void  getLoginVolley() {
+    private void  getLoginVolley() {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         String url = "http://192.168.1.3:8080/" +"login/"+email.getText().toString()+"/"+password.getText().toString() ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest

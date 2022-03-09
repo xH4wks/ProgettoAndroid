@@ -1,6 +1,6 @@
 package com.example.progettoingsw.GUI.impostazioni.fragment;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +11,18 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.progettoingsw.GUI.homev2.Homev2;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.progettoingsw.ENTITY.Utente;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,20 +85,66 @@ public class Cambia_nome extends Fragment {
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LogicCenter l =new LogicCenter();
-                if (l.cambianome(nuovo_nome.getText().toString(),password.getText().toString())){
-                    Toast.makeText(getActivity(), "nome cambiato con successo", Toast.LENGTH_SHORT).show();
-                    Intent imp = new Intent(getActivity(), Homev2.class);
-                    startActivity(imp);
-                }
-                else{
-                    //messaggio di errore ma si resta sulla stessa pagina
-                    Toast.makeText(getActivity(), "Errore durante il cambiamento del nome", Toast.LENGTH_SHORT).show();
-
-                }
-
+                volleycambianome(password.getText().toString(),nuovo_nome.getText().toString(),getActivity());
             }
         });
         return view;
     }
+
+
+    //volley
+    private static void volleycambianome(String password, String nuovonome, Context activity) {
+        String url = "http://192.168.1.3:8080/utente/cambia";
+        LogicCenter l = new  LogicCenter();
+        Utente user = l.getUtenteloggato();
+        if (user.getPassword().equals(password)){
+            RequestQueue queue = Volley.newRequestQueue(activity);
+            JSONObject params = new JSONObject();
+            try {
+                params.put("username", nuovonome);
+                params.put("password", user.getPassword());
+                params.put("email", user.getEmail());
+                params.put("immagine_profilo", user.getImmagine_profilo());
+            }
+            catch (JSONException e){
+                Toast.makeText(activity, "errore durante il cambio del nome", Toast.LENGTH_LONG).show();
+            }
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            //response
+                            try {
+                                Utente user = new Utente(response.getString("username"),
+                                        response.getString("password"),
+                                        response.getString("immagine_profilo"),
+                                        response.getString("email"));
+                                Toast.makeText(activity, "registrazione avvenuta con successo", Toast.LENGTH_LONG).show();
+                                l.apriHome(activity,user);
+                            }
+                            catch (JSONException e){
+                                e.printStackTrace();
+                                Toast.makeText(activity, "errore durante il cambio dei dati", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(activity, "errore durante il cambio dei dati", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+            queue.add(jsonObjectRequest);
+        }
+        //fine if
+        else
+            Toast.makeText(activity, "password non corrispondente", Toast.LENGTH_LONG).show();
+        //fine metodo
+
+    }
+
+
+
 }

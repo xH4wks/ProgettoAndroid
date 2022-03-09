@@ -60,7 +60,7 @@ public class RegistratiFragment extends Fragment {
     }
     //chiamate volley
     //richiesta HTTP per la registrazione con invio del file Json con tutte le informazioni dell'utente
-    public void  postRegistrazioneVolley() {
+    private void  postRegistrazioneVolley() {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         String url = "http://192.168.1.3:8080/registrati"  ;
         JSONObject params = new JSONObject();
@@ -99,8 +99,8 @@ public class RegistratiFragment extends Fragment {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
 
+                        Toast.makeText(getActivity(), "errore durante la registrazione dell'utente, riprovare più tardi", Toast.LENGTH_LONG).show();
                     }
                 });
 
