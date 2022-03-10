@@ -25,7 +25,6 @@ import com.example.progettoingsw.GUI.impostazioni.Impostazioni;
 import com.example.progettoingsw.R;
 import com.example.progettoingsw.databinding.ActivityHomev2Binding;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 
 public class Homev2 extends AppCompatActivity {
@@ -33,6 +32,8 @@ public class Homev2 extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomev2Binding binding;
     private MapsFragment mappa;
+    private  Boolean lag;
+    private Button tracciaPercorso,aggiungiGPX;
 
 
     //prova suggerimenti ricerca

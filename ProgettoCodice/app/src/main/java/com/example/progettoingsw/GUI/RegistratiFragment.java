@@ -62,7 +62,7 @@ public class RegistratiFragment extends Fragment {
     //richiesta HTTP per la registrazione con invio del file Json con tutte le informazioni dell'utente
     private void  postRegistrazioneVolley() {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        String url = "http://192.168.1.3:8080/registrati"  ;
+        String url = "http://140.164.32.230:8080/registrati"  ;
         JSONObject params = new JSONObject();
         try {
             params.put("username", username.getText().toString());

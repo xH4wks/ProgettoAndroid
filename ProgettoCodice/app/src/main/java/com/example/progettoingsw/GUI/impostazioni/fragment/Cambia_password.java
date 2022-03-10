@@ -94,7 +94,7 @@ public class Cambia_password extends Fragment {
     }
     //volley
     private static void volleycambianome(String password, String nuovapass, Context activity) {
-        String url = "http://192.168.1.3:8080/utente/cambia";
+        String url = "http://140.164.32.230:8080/utente/cambia";
         LogicCenter l = new  LogicCenter();
         Utente user = l.getUtenteloggato();
         if (user.getPassword().equals(password)){
