@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class Homev2 extends AppCompatActivity {
     private ActivityHomev2Binding binding;
     private MapsFragment mappa;
 
+
     //prova suggerimenti ricerca
     private ListView listView;
     String[] name = {"Christopher", "Jenny","Haria", "steve", "Chris","Ivana","Hichael","Craig",
@@ -48,12 +50,26 @@ public class Homev2 extends AppCompatActivity {
         binding = ActivityHomev2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        tracciaPercorso = findViewById(R.id.home_bottone_traccia_percorso);
+        aggiungiGPX = findViewById(R.id.home_bottone_aggiungi_gpx);
+
+
+
         setSupportActionBar(binding.appBarHomev2.toolbar);
         binding.appBarHomev2.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (lag){
+                    tracciaPercorso.setVisibility(View.VISIBLE);
+                    aggiungiGPX.setVisibility(View.VISIBLE);
+                    lag = false;
+                }
+                else
+                {
+                    tracciaPercorso.setVisibility(View.INVISIBLE);
+                    aggiungiGPX.setVisibility(View.INVISIBLE);
+                    lag = true;
+                }
                         mappa = new MapsFragment();
                 mappa.qualcosa();
             }
@@ -88,6 +104,9 @@ public class Homev2 extends AppCompatActivity {
 
         return true;
     }
+
+
+
 
 
     /*@Override
