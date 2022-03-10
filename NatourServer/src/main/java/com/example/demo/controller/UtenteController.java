@@ -31,14 +31,15 @@ public class UtenteController {
 	}
 	
 	@PostMapping (value = "/registrati")
-	public Boolean registrati (@RequestBody Utente user) {
+	public Utente registrati (@RequestBody Utente user)throws Exception {
 		
 		if(utenterepo.existsById(user.getUsername())) {
-			return false;
+			throw new Exception("Accesso non riuscito");
 		}
-		utenterepo.save(user);
-	return true;
+		
+	return utenterepo.save(user);
 	}
+	
 	@PostMapping (value = "utente/cambia")
 	public Utente cambia(@RequestBody Utente user) {
 		return utenterepo.save(user);

@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -18,6 +18,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.example.progettoingsw.GUI.homev2.fragment.MapsFragment;
 import com.example.progettoingsw.GUI.impostazioni.Impostazioni;
 import com.example.progettoingsw.R;
 import com.example.progettoingsw.databinding.ActivityHomev2Binding;
@@ -29,6 +31,7 @@ public class Homev2 extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomev2Binding binding;
+    private MapsFragment mappa;
 
     //prova suggerimenti ricerca
     private ListView listView;
@@ -51,6 +54,8 @@ public class Homev2 extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                        mappa = new MapsFragment();
+                mappa.qualcosa();
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -68,7 +73,8 @@ public class Homev2 extends AppCompatActivity {
         listView = findViewById(R.id.listview);
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, name);
         listView.setAdapter(arrayAdapter);
-        
+
+
     }
 
     @Override

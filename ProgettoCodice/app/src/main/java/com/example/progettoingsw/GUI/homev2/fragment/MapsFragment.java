@@ -11,6 +11,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -162,7 +163,9 @@ public class MapsFragment extends Fragment {
         }
     }
 
-
+    public  void qualcosa(){
+        Log.v("MAPPA","funzione nella mappa");
+    }
 
 
 
