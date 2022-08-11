@@ -67,12 +67,13 @@ public class LoginFragment extends Fragment {
                     public void onResponse(JSONObject response) {
                         //response
                         try {
+                            JSONObject risposta = response.getJSONObject("result");
                             Log.v("ACCESSO",response.getString("username"));
                             //separo gli input per aumentare la leggibilità
-                            Utente user = new Utente(response.getString("username"),
-                                    response.getString("password"),
-                                    response.getString("immagine_profilo"),
-                                    response.getString("email"));
+                            Utente user = new Utente(risposta.getString("username"),
+                                    risposta.getString("password"),
+                                    risposta.getString("immagine_profilo"),
+                                    risposta.getString("email"));
                             LogicCenter l = new LogicCenter();
                             l.apriHome(getActivity(),user);
 
