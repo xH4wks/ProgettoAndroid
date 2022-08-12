@@ -64,6 +64,7 @@ public class RegistratiFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         String url = "http://140.164.32.230:8080/registrati"  ;
         JSONObject params = new JSONObject();
+
         try {
             params.put("username", username.getText().toString());
             params.put("password", password.getText().toString());

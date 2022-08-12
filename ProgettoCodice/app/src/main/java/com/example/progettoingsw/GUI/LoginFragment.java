@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -57,18 +58,26 @@ public class LoginFragment extends Fragment {
     }
 
     //richiesta HTTP per l'accesso con la ricezione del file Json con tutte le informazioni dell'utente
-    private void  getLoginVolley() {
+    private void  getLoginVolley()  {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        String url = "http://140.164.32.230:8080/" +"login/"+email.getText().toString()+"/"+password.getText().toString() ;
+        String url = "https://innovawaydev.service-now.com/api/grisa/androidapi/login";
+        JSONObject params = new JSONObject();
+        try {
+            params.put("username", email.getText().toString());
+            params.put("password", password.getText().toString());
+        }
+        catch (JSONException e){
+            Toast.makeText(getActivity(), "errore durante la registrazione dell'utente, riprovare più tardi", Toast.LENGTH_LONG).show();
+        }
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+                (Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
                         //response
                         try {
                             JSONObject risposta = response.getJSONObject("result");
-                            Log.v("ACCESSO",response.getString("username"));
+                            //Log.v("ACCESSO",response.getString("username"));
                             //separo gli input per aumentare la leggibilità
                             Utente user = new Utente(risposta.getString("username"),
                                     risposta.getString("password"),
