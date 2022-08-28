@@ -1,5 +1,6 @@
 package com.example.progettoingsw.GUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,8 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -18,14 +20,25 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.progettoingsw.ENTITY.Utente;
+import com.example.progettoingsw.GUI.homev2.Homev2;
 import com.example.progettoingsw.LogicCenter;
 import com.example.progettoingsw.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
 public class LoginFragment extends Fragment {
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+    Button buttonGoogleaccess;
 
     EditText email,password;
 
@@ -53,36 +66,71 @@ public class LoginFragment extends Fragment {
 
         //todo accesso google e facebook
 
+        buttonGoogleaccess = (Button) view.findViewById(R.id.buttonGoogleaccess);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        gsc = GoogleSignIn.getClient(this.getActivity(), gso);
+
+        //Qui mantiene l'accesso con l'acc google
+        /*GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this.getActivity());
+        if(acct!=null){
+            navigateToSecondActivity();
+        }*/
+
+        buttonGoogleaccess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                singIn();
+            }
+        });
+
         //end component
         return  view;
     }
 
+    void singIn(){
+        Intent singInIntent = gsc.getSignInIntent();
+        startActivityForResult(singInIntent, 1000);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1000){
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+            try {
+                task.getResult(ApiException.class);
+                navigateToSecondActivity();
+            } catch (ApiException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    void navigateToSecondActivity(){
+        Intent intent = new Intent(LoginFragment.this.getActivity(), Homev2.class);
+        startActivity(intent);
+    }
+
     //richiesta HTTP per l'accesso con la ricezione del file Json con tutte le informazioni dell'utente
-    private void  getLoginVolley()  {
+    private void  getLoginVolley() {
         RequestQueue queue = Volley.newRequestQueue(getActivity());
-        String url = "https://innovawaydev.service-now.com/api/grisa/androidapi/login";
-        JSONObject params = new JSONObject();
-        try {
-            params.put("username", email.getText().toString());
-            params.put("password", password.getText().toString());
-        }
-        catch (JSONException e){
-            Toast.makeText(getActivity(), "errore durante la registrazione dell'utente, riprovare più tardi", Toast.LENGTH_LONG).show();
-        }
+        String url = "http://140.164.32.230:8080/" +"login/"+email.getText().toString()+"/"+password.getText().toString() ;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
                         //response
                         try {
-                            JSONObject risposta = response.getJSONObject("result");
-                            //Log.v("ACCESSO",response.getString("username"));
+                            Log.v("ACCESSO",response.getString("username"));
                             //separo gli input per aumentare la leggibilità
-                            Utente user = new Utente(risposta.getString("username"),
-                                    risposta.getString("password"),
-                                    risposta.getString("immagine_profilo"),
-                                    risposta.getString("email"));
+                            Utente user = new Utente(response.getString("username"),
+                                    response.getString("password"),
+                                    response.getString("immagine_profilo"),
+                                    response.getString("email"));
                             LogicCenter l = new LogicCenter();
                             l.apriHome(getActivity(),user);
 
